@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Aprende Balonmano! - Infografía para Niños</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#FF6B35">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link id="manifest-link" rel="manifest">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES Y RESET --- */
+        :root {
+            --orange: #FF6B35;
+            --yellow: #FFD60A;
+            --blue: #1B74E4;
+            --green: #2ECC71;
+            --red: #E74C3C;
+            --bg: #FFF9F0;
+            --text-dark: #2D3436;
+            --text-light: #FFFFFF;
+            --font-title: 'Baloo 2', cursive;
+            --font-body: 'Nunito', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            font-size: 20px;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* --- TIPOGRAFÍA Y LAYOUT --- */
+        h1, h2, h3 {
+            font-family: var(--font-title);
+            margin: 0;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        /* --- ANIMACIONES --- */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(8deg); }
+            75% { transform: rotate(-8deg); }
+        }
+
+        .mascot-hero {
+            font-size: 80px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        .mascot-guide {
+            font-size: 50px;
+            display: inline-block;
+            animation: wiggle 3s infinite;
+        }
+
+        /* Reducción de movimiento por accesibilidad */
+        @media (prefers-reduced-motion: reduce) {
+            .mascot-hero, .mascot-guide, .card, .step-item {
+                animation: none !important;
+                transition: none !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+
+        /* --- COMPONENTES BASE --- */
+        .card {
+            background: var(--text-light);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+
+        /* --- SECCIÓN: HERO --- */
+        header {
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        header h1 {
+            font-size: 48px;
+            color: var(--orange);
+            margin-bottom: 10px;
+        }
+
+        .badge {
+            background-color: var(--yellow);
+            color: var(--text-dark);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        /* --- SECCIÓN: BURBUJA GUÍA --- */
+        .guide-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: var(--blue);
+            color: var(--text-light);
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .speech-bubble {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        /* --- SECCIÓN: IDEA CENTRAL --- */
+        .main-idea {
+            text-align: center;
+            background: var(--orange);
+            color: var(--text-light);
+        }
+
+        .goal-text {
+            font-family: var(--font-title);
+            font-size: 100px;
+            line-height: 1;
+            margin: 10px 0;
+            text-shadow: 4px 4px 0 var(--yellow);
+        }
+
+        /* --- SECCIÓN: DATOS CLAVE --- */
+        .grid-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+        }
+
+        .fact-card {
+            text-align: center;
+            border-top: 6px solid var(--blue);
+        }
+
+        .fact-card .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .fact-card h3 {
+            color: var(--blue);
+            font-size: 28px;
+        }
+
+        .fact-card p {
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        /* --- SECCIÓN: PASOS --- */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .step-item {
+            background: var(--text-light);
+            padding: 15px 20px;
+            border-radius: 12px;
+            border-left: 8px solid var(--green);
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .step-num {
+            background: var(--green);
+            color: var(--text-light);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-title);
+            flex-shrink: 0;
+        }
+
+        /* --- SECCIÓN: EL CAMPO --- */
+        .field-section h2 {
+            text-align: center;
+            color: var(--green);
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        .field-svg {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            display: block;
+            background: var(--green);
+            border-radius: 12px;
+            border: 4px solid var(--text-dark);
+        }
+
+        .field-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+            font-size: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* --- SECCIÓN: PORTERO --- */
+        .gk-card {
+            background: var(--red);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .gk-icon {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        /* --- SECCIÓN: QUIZ --- */
+        .quiz-section {
+            text-align: center;
+        }
+
+        .quiz-section h2 {
+            color: var(--orange);
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-container {
+            background: var(--text-light);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        #quiz-question {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn-quiz {
+            background: var(--bg);
+            border: 3px solid var(--blue);
+            color: var(--blue);
+            font-family: var(--font-body);
+            font-size: 20px;
+            font-weight: 700;
+            padding: 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            min-height: 60px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-quiz:hover {
+            background: #E8F0FE;
+        }
+
+        .btn-quiz.correct {
+            background-color: var(--green);
+            color: var(--text-light);
+            border-color: var(--green);
+        }
+
+        .btn-quiz.wrong {
+            background-color: var(--red);
+            color: var(--text-light);
+            border-color: var(--red);
+        }
+
+        #quiz-feedback {
+            font-size: 22px;
+            font-weight: 700;
+            margin-top: 20px;
+            min-height: 30px;
+        }
+
+        .btn-next {
+            background: var(--orange);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            font-size: 20px;
+            font-weight: 700;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            min-height: 50px;
+        }
+
+        .hidden { display: none; }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--text-dark);
+            color: var(--text-light);
+            border-radius: 20px 20px 0 0;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+
+        /* Mobile responsiveness adjustments */
+        @media (max-width: 480px) {
+            header h1 { font-size: 36px; }
+            .goal-text { font-size: 70px; }
+            .quiz-options { grid-template-columns: 1fr; }
+            .field-legend { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="mascot-hero" aria-hidden="true">🦁</div>
+        <h1>¡Aprende Balonmano!</h1>
+        <span class="badge">Infografía Interactiva</span>
+    </header>
+
+    <main>
+        <!-- BURBUJA GUÍA -->
+        <section class="guide-section" aria-label="Introducción">
+            <div class="mascot-guide" aria-hidden="true">🦁</div>
+            <div class="speech-bubble">
+                ¡Hola! Soy Leo. ¿Sabes qué es el balonmano? ¡Acompáñame a descubrirlo!
+            </div>
+        </section>
+
+        <!-- IDEA CENTRAL -->
+        <section aria-label="Objetivo del juego">
+            <div class="card main-idea">
+                <h2>El objetivo del juego es...</h2>
+                <div class="goal-text">¡GOL!</div>
+                <p>Marcar en la portería del equipo rival.</p>
+            </div>
+        </section>
+
+        <!-- DATOS CLAVE -->
+        <section aria-label="Datos clave">
+            <div class="grid-facts">
+                <div class="card fact-card">
+                    <div class="icon" aria-hidden="true">👥</div>
+                    <h3>7</h3>
+                    <p>Jugadores por equipo</p>
+                </div>
+                <div class="card fact-card">
+                    <div class="icon" aria-hidden="true">👟</div>
+                    <h3>3</h3>
+                    <p>Pasos máximo con balón</p>
+                </div>
+                <div class="card fact-card">
+                    <div class="icon" aria-hidden="true">⏱️</div>
+                    <h3>30</h3>
+                    <p>Minutos por tiempo</p>
+                </div>
+                <div class="card fact-card">
+                    <div class="icon" aria-hidden="true">🛑</div>
+                    <h3>6m</h3>
+                    <p>Zona solo del portero</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PASOS PARA ANOTAR -->
+        <section aria-label="Pasos para anotar">
+            <h2 style="text-align:center; color:var(--green); font-size:32px; margin-bottom:20px;">¿Cómo anotar un gol?</h2>
+            <div class="steps-container">
+                <div class="step-item">
+                    <span class="step-num">1</span>
+                    <span>Corre y esquiva a los rivales</span>
+                </div>
+                <div class="step-item">
+                    <span class="step-num">2</span>
+                    <span>Pasa el balón a tu compañero</span>
+                </div>
+                <div class="step-item">
+                    <span class="step-num">3</span>
+                    <span>¡Lanza fuerte a la portería!</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- EL CAMPO -->
+        <section class="field-section" aria-label="El campo de juego">
+            <h2>El Campo de Juego</h2>
+            <svg class="field-svg" viewBox="0 0 400 200" aria-label="Campo rectangular con áreas de portero">
+                <!-- Campo -->
+                <rect x="0" y="0" width="400" height="200" fill="#2ECC71" stroke="#FFF" stroke-width="4"/>
+                <!-- Línea central -->
+                <line x1="200" y1="0" x2="200" y2="200" stroke="#FFF" stroke-width="2"/>
+                <circle cx="200" cy="100" r="20" fill="none" stroke="#FFF" stroke-width="2"/>
+                
+                <!-- Área izquierda (6m) -->
+                <rect x="0" y="50" width="40" height="100" fill="none" stroke="#FFF" stroke-width="3"/>
+                <path d="M 0 65 A 30 30 0 0 1 0 135" fill="none" stroke="#FFF" stroke-width="3"/>
+                <!-- Línea de 9m izquierda -->
+                <path d="M 0 55 A 45 45 0 0 1 0 145" fill="none" stroke="#FFF" stroke-width="1" stroke-dasharray="5,5"/>
+                <!-- Línea de 7m izquierda -->
+                <line x1="25" y1="0" x2="25" y2="200" stroke="#FFD60A" stroke-width="1"/>
+                <circle cx="25" cy="100" r="3" fill="#FFD60A"/>
+
+                <!-- Área derecha (6m) -->
+                <rect x="360" y="50" width="40" height="100" fill="none" stroke="#FFF" stroke-width="3"/>
+                <path d="M 400 65 A 30 30 0 0 0 400 135" fill="none" stroke="#FFF" stroke-width="3"/>
+                <!-- Línea de 9m derecha -->
+                <path d="M 400 55 A 45 45 0 0 0 400 145" fill="none" stroke="#FFF" stroke-width="1" stroke-dasharray="5,5"/>
+                <!-- Línea de 7m derecha -->
+                <line x1="375" y1="0" x2="375" y2="200" stroke="#FFD60A" stroke-width="1"/>
+                <circle cx="375" cy="100" r="3" fill="#FFD60A"/>
+
+                <!-- Jugadores Emoji -->
+                <text x="10" y="105" font-size="20">🧤</text>
+                <text x="70" y="70" font-size="18">🤾</text>
+                <text x="70" y="140" font-size="18">🤾‍♀️</text>
+                <text x="390" y="105" font-size="20" text-anchor="end">🧤</text>
+            </svg>
+            <div class="field-legend">
+                <span>⚪ Línea de 6m (Área)</span>
+                <span>🟡 Punto de Penalti (7m)</span>
+            </div>
+        </section>
+
+        <!-- EL PORTERO -->
+        <section aria-label="El portero">
+            <div class="card gk-card">
+                <div class="gk-icon" aria-hidden="true">🧤</div>
+                <h2>El Portero</h2>
+                <p>Es el único que puede tocar el balón con los pies. ¡Defiende la portería y es muy ágil!</p>
+            </div>
+        </section>
+
+        <!-- QUIZ INTERACTIVO -->
+        <section class="quiz-section" aria-label="Quiz interactivo">
+            <h2>¡Demuestra lo que aprendiste!</h2>
+            <div class="quiz-container">
+                <p id="quiz-question">Cargando pregunta...</p>
+                <div id="quiz-options" class="quiz-options"></div>
+                <p id="quiz-feedback" aria-live="polite"></p>
+                <button id="quiz-next" class="btn-next hidden" aria-label="Siguiente pregunta">Siguiente ➡️</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- ✏️ REEMPLAZA: escribe tu nombre y apellido aquí -->
+        <p>Creado por: <strong>[Andrea Micaela De los Rios Quintana]</strong></p>
+        <p>Universidad Tecnológica del Perú</p>
+        <p>Año de elaboración: 2026 | Infografía</p>
+        <p style="margin-top:15px; font-size: 16px; opacity: 0.8;">¡El deporte une y enseña! 🤾</p>
+    </footer>
+
+    <script>
+        // --- LÓGICA DEL QUIZ ---
+        const questions = [
+            {
+                q: "¿Cuántos jugadores tiene un equipo en la cancha?",
+                opts: [
+                    { text: "5 jugadores", correct: false },
+                    { text: "7 jugadores", correct: true },
+                    { text: "11 jugadores", correct: false },
+                    { text: "3 jugadores", correct: false }
+                ]
+            },
+            {
+                q: "¿Cuántos pasos puedes dar con el balón en la mano?",
+                opts: [
+                    { text: "Los que quieras", correct: false },
+                    { text: "1 paso", correct: false },
+                    { text: "3 pasos", correct: true },
+                    { text: "5 pasos", correct: false }
+                ]
+            },
+            {
+                q: "¿Cuánto dura cada tiempo del partido?",
+                opts: [
+                    { text: "45 minutos", correct: false },
+                    { text: "30 minutos", correct: true },
+                    { text: "15 minutos", correct: false },
+                    { text: "60 minutos", correct: false }
+                ]
+            },
+            {
+                q: "¿Quién es el único que puede estar en la zona de 6 metros?",
+                opts: [
+                    { text: "El delantero", correct: false },
+                    { text: "El árbitro", correct: false },
+                    { text: "El portero", correct: true },
+                    { text: "El entrenador", correct: false }
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let answering = true;
+
+        const questionEl = document.getElementById("quiz-question");
+        const optionsEl = document.getElementById("quiz-options");
+        const feedbackEl = document.getElementById("quiz-feedback");
+        const nextBtn = document.getElementById("quiz-next");
+
+        function loadQuestion() {
+            answering = true;
+            feedbackEl.textContent = "";
+            nextBtn.classList.add("hidden");
+            
+            const currentQ = questions[currentQuestionIndex];
+            questionEl.textContent = `${currentQuestionIndex + 1}. ${currentQ.q}`;
+            
+            optionsEl.innerHTML = "";
+            currentQ.opts.forEach((opt, index) => {
+                const btn = document.createElement("button");
+                btn.classList.add("btn-quiz");
+                btn.textContent = opt.text;
+                btn.setAttribute("aria-label", `Opción ${index + 1}: ${opt.text}`);
+                btn.addEventListener("click", () => checkAnswer(btn, opt.correct));
+                optionsEl.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(btn, isCorrect) {
+            if (!answering) return;
+            answering = false;
+
+            const allBtns = document.querySelectorAll(".btn-quiz");
+
+            if (isCorrect) {
+                btn.classList.add("correct");
+                feedbackEl.textContent = "¡Muy bien! 🎉";
+                feedbackEl.style.color = "var(--green)";
+                score++;
+            } else {
+                btn.classList.add("wrong");
+                feedbackEl.textContent = "¡Ups! Inténtalo de nuevo 🤔";
+                feedbackEl.style.color = "var(--red)";
+                
+                // Mostrar la correcta si falla
+                allBtns.forEach(b => {
+                    const optText = b.textContent;
+                    const currentOpts = questions[currentQuestionIndex].opts;
+                    const optData = currentOpts.find(o => o.text === optText);
+                    if(optData && optData.correct) {
+                        b.classList.add("correct");
+                    }
+                });
+            }
+
+            nextBtn.classList.remove("hidden");
+        }
+
+        nextBtn.addEventListener("click", () => {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        });
+
+        function showResults() {
+            questionEl.textContent = `¡Juego terminado! Puntaje: ${score}/${questions.length}`;
+            optionsEl.innerHTML = "";
+            feedbackEl.textContent = score === questions.length ? "¡Eres un crack del balonmano! 🏆" : "¡Buen trabajo! Sigue aprendiendo 💪";
+            feedbackEl.style.color = "var(--blue)";
+            nextBtn.classList.add("hidden");
+            
+            const restartBtn = document.createElement("button");
+            restartBtn.classList.add("btn-next");
+            restartBtn.textContent = "Jugar de nuevo 🔄";
+            restartBtn.style.marginTop = "20px";
+            restartBtn.addEventListener("click", () => {
+                currentQuestionIndex = 0;
+                score = 0;
+                loadQuestion();
+            });
+            optionsEl.appendChild(restartBtn);
+        }
+
+        // Iniciar Quiz
+        loadQuestion();
+
+        // --- LÓGICA PWA (MANIFEST Y SERVICE WORKER INLINE) ---
+
+        // 1. Manifest Embebido
+        const manifestData = {
+            name: "¡Aprende Balonmano!",
+            short_name: "Balonmano",
+            start_url: ".",
+            display: "standalone",
+            background_color: "#FFF9F0",
+            theme_color: "#FF6B35",
+            description: "Infografía interactiva para niños sobre balonmano.",
+            icons: [
+                {
+                    src: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤾</text></svg>",
+                    sizes: "512x512",
+                    type: "image/svg+xml"
+                }
+            ]
+        };
+        const manifestBlob = new Blob([JSON.stringify(manifestData)], {type: 'application/json'});
+        const manifestURL = URL.createObjectURL(manifestBlob);
+        document.getElementById('manifest-link').setAttribute('href', manifestURL);
+
+        // 2. Service Worker Inline (Cache básica)
+        const swCode = `
+            self.addEventListener('install', e => {
+                self.skipWaiting();
+            });
+            self.addEventListener('activate', e => {
+                e.waitUntil(clients.claim());
+            });
+            self.addEventListener('fetch', e => {
+                e.respondWith(
+                    caches.match(e.request).then(r => r || fetch(e.request).then(response => {
+                        return caches.open('balonmano-v1').then(cache => {
+                            cache.put(e.request, response.clone());
+                            return response;
+                        });
+                    }))
+                );
+            });
+        `;
+        const swBlob = new Blob([swCode], { type: 'application/javascript' });
+        const swURL = URL.createObjectURL(swBlob);
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register(swURL).then(reg => {
+                console.log('Service Worker registrado');
+            }).catch(err => console.error('Error registrando SW', err));
+        }
+
+    </script>
+</body>
+</html>
